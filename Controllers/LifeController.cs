@@ -1,3 +1,5 @@
+using System;
+using FisherInsurance.Models;
 using Microsoft.AspNetCore.Mvc;
 
 public class LifeController : Controller
@@ -11,6 +13,13 @@ public class LifeController : Controller
     public IActionResult Quote()
     {
         //return Ok("This is your life insurance quote");
-        return View();
+        Quote quote = new Quote
+        {
+            Id = 345,
+            Product = "Life Insurance",
+            ExpireDate = DateTime.Now.AddDays(45),
+            Price = 45.00M
+        };
+        return View(quote);
     }
 }
